@@ -1,18 +1,27 @@
 import random
-import math
 
 class RSA():
-    def __init__(self):
-        self.p = self.genPrime()
-        self.q = self.genPrime()
-        self.n = self.q * self.p
-        self.r = (self.p - 1) * (self.q - 1)
-        self.e = self.findE()
-        self.d = self.findMultInv(self.e, self.r)
+    publicKey = []
+    privateKey = 0
 
-    def findE(self):
+    def __init__(self):
+        p = self.genPrime()
+        q = self.genPrime()
+
+        n = q * p
+        r = (p - 1) * (q - 1)
+        e = self.findE(r)
+
+        self.privateKey = self.findMultInv(e, r)
+        self.publicKey = [e, n]
+
+    def stringToBits(self, string):
+        # 08b adds bitts at the start so that 1 is 00000001
+        return ''.join(f'{ord(char):08b}' for char in string)
+
+    def findE(self, r):
         e = 3
-        while self.gcd(e, self.r) != 1:
+        while self.gcd(e, r) != 1:
             e += 2
 
         return e
@@ -39,10 +48,19 @@ class RSA():
         return (x0 % modulus + modulus) % modulus
 
     def encrypt(self, string):
-        pass
+        stringBits = int(self.stringToBits(string), 2)
+        encryptedString = pow(stringBits, self.publicKey[0], self.publicKey[1])
 
-    def decrypt(self, string):
-        pass
+        return encryptedString
+
+
+    def decrypt(self, encryptedStringAsNum):
+        decryptedNum = pow(encryptedStringAsNum, self.privateKey, self.publicKey[1])
+        # apparently for big nums you have to specify the amount of space the thing takes
+        # +7 makes sure that the string is rounded to the next byte and // 8 computes the num of bytes
+        decryptedString = decryptedNum.to_bytes((decryptedNum.bit_length() + 7) // 8, byteorder='big').decode('ascii')
+
+        return decryptedString
 
     def isPrime(self, n, k=100):
         d = n - 1
@@ -77,8 +95,8 @@ class RSA():
             if self.isPrime(n):
                 return n
 
-
-
 rsa = RSA()
-
-print(rsa.genPrime())
+encryptedString = rsa.encrypt("Hello World!")
+print(encryptedString)
+decryptedString = rsa.decrypt(encryptedString)
+print(decryptedString)
