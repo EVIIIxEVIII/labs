@@ -35,7 +35,7 @@ fib_n = 1
 win = 0
 loss = 0
 
-for _ in range(0, 1000):
+for _ in range(0, 100000):
     bet = n_fib_num(fib_n)
     if balance < bet:
         print("You gabled your life savings, good job!")
