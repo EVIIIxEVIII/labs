@@ -73,35 +73,24 @@ class Solution():
     def overlapHandling(self, edgeElements, consCharsGroups):
         numSteps = 0
         for groupId, edges in edgeElements.items():
-            [start, end] = edges
+            [_, end] = edges
 
+            # basically make the insert in the group which is closer to 0 when % 3
+            # this way u choose the best move
             if (
-                (self.consecutiveGroups[consCharsGroups[start]] == 2)
-                and
                 (self.consecutiveGroups[consCharsGroups[end]] == 2)
+                and
+                (self.repeatingGroups[groupId + 1] >= 3)
                ):
-                if (self.repeatingGroups[groupId] % 3 == 0): # from abbbc -> aXbbX
-                    self.repeatingGroups[groupId] -= 1
-                    self.repeatingGroups[groupId + 1] -= 1
+                _, removeFrom, edge = min(
+                    ((self.repeatingGroups[groupId] % 3, groupId, end),
+                     (self.repeatingGroups[groupId + 1] % 3, groupId + 1, end+1)),
+                    key=lambda x: x[0]
+                )
 
-                    self.consecutiveGroups[consCharsGroups[start]] -= 1
-                    self.consecutiveGroups[consCharsGroups[end + 1]] -= 1
-                    numSteps += 2
-
-                elif (self.repeatingGroups[groupId] % 3 == 1): # from aaabbbbccc -> aaaXbbXccc
-                    self.repeatingGroups[groupId] -= 2
-
-                    self.consecutiveGroups[consCharsGroups[start]] -= 1
-                    self.consecutiveGroups[consCharsGroups[end]] -= 1
-                    numSteps += 2
-
-                elif (self.repeatingGroups[groupId] % 3 == 2): # from aaabbbbccc -> aaXbbbbbXcc
-                    self.repeatingGroups[groupId - 1] -= 1
-                    self.repeatingGroups[groupId + 1] -= 1
-
-                    self.consecutiveGroups[consCharsGroups[start - 1]] -= 1
-                    self.consecutiveGroups[consCharsGroups[end + 1]] -= 1
-                    numSteps += 2
+                self.repeatingGroups[removeFrom] -= 1
+                self.consecutiveGroups[consCharsGroups[edge]] -= 1
+                numSteps += 1
 
         return numSteps
 
@@ -120,6 +109,8 @@ class Solution():
 
             consArgmin = None
             for el, gr in consCharToGr.items():
+                # don't choose consec. elements at the edges, bc you get aaabbb -> aaabb, meaning
+                # the group is not being fixed
                 if (self.consecutiveGroups[gr] < 2) or (el in allEdges):
                     continue
                 consArgmin = gr
