@@ -25,5 +25,11 @@ const normieManRider = (days) => {
     return days * 2 * 6;
 }
 
-console.log(`Jora Petrovici would spend ${brokeManRider(365)} lei in an year`);
+const res = []
+for (let i = 0; i < 10000; i++) {
+    res.push(brokeManRider(365))
+}
+const sum = res.reduce((acc, val) => acc + val, 0);
+
+console.log(`Jora Petrovici would spend ${sum/10000} lei in an year on average, after ${10000} experiments`);
 console.log(`Normal person would spend ${normieManRider(365)} lei in an year`);

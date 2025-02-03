@@ -159,6 +159,7 @@ class Solution():
                 if distance < distances[neighbour]:
                     distances[neighbour] = distance
                     heapq.heappush(queue, (distance, neighbour))
+
         return distances
 
     def analyseBookTopics(self, title="From T-Rex to Multi Universes: How the Internet has Changed Politics, Art and Cute Cats."):
@@ -186,45 +187,42 @@ class Solution():
 
 
 solution = Solution()
-print("\n--- 3.1 ---\n")
-mostPopular, maxFriends = solution.getMostPopular()
-print(f"The most popular person is {names[mostPopular]} with {maxFriends} friends")
-print("\n--- 3.1 ---\n")
+print("--- 3.1 ---")
+print("--- 3.2 ---")
+print("--- 3.3 ---")
+print("--- 3.4 ---")
+print("--- 3.5 ---")
+print("--- 3.6 ---")
 
-print("\n--- 3.2 ---\n")
-sortedByFriends = solution.sortByFriends()
-print(f"People sorted by friends: ")
-for person, friends in sortedByFriends.items():
-    print(f"{person} has {friends} friends")
-print("\n--- 3.2 ---\n")
+problem = input("Input the problem > ")
 
-print("\n--- 3.3 ---\n")
-ratings = solution.getPeopleByRating()
-for i, rating in ratings.items():
-    print(f"{names[i]}'s rating is {rating}")
-print("\n--- 3.3 ---\n")
+match problem:
+    case "3.1":
+        mostPopular, maxFriends = solution.getMostPopular()
+        print(f"The most popular person is {names[mostPopular]} with {maxFriends} friends")
+    case "3.2":
+        sortedByFriends = solution.sortByFriends()
+        print(f"People sorted by friends: ")
+        for person, friends in sortedByFriends.items():
+            print(f"{person} has {friends} friends")
+    case "3.3":
+        ratings = solution.getPeopleByRating()
+        for i, rating in ratings.items():
+            print(f"{names[i]}'s rating is {rating}")
+    case "3.4":
+        influenceRating = solution.getPeopleByInfluence()
+        for i, rating in influenceRating.items():
+            print(f"{names[i]}'s influence is {rating}")
 
+    case "3.5":
+        bookTopics = solution.analyseBookTopics()
+        print("Interests related to the book: ")
+        for interest in bookTopics:
+            print(interest)
 
-print("\n--- 3.4 ---\n")
-influenceRating = solution.getPeopleByInfluence()
-for i, rating in influenceRating.items():
-    print(f"{names[i]}'s influence is {rating}")
-
-print("\n--- 3.4 ---\n")
-
-print("\n--- 3.5 ---\n")
-bookTopics = solution.analyseBookTopics()
-print("Interests related to the book: ")
-for interest in bookTopics:
-    print(interest)
-print("\n--- 3.5 ---\n")
-
-print("\n--- 3.6 ---\n")
-
-peopleToConcidingInterest = solution.getRatingForBookPromo()
-print("We should contact these people: ")
-top5People = list(peopleToConcidingInterest.items())[:5]
-for i, rating in top5People:
-    print(f"{names[i]}'s ({rating})")
-
-print("\n--- 3.6 ---\n")
+    case "3.6":
+        peopleToConcidingInterest = solution.getRatingForBookPromo()
+        print("We should contact these people: ")
+        top5People = list(peopleToConcidingInterest.items())[:5]
+        for i, rating in top5People:
+            print(f"{names[i]}'s ({rating})")

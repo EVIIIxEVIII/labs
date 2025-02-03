@@ -50,9 +50,10 @@ def simulate():
         if isNearPoint((0, 5), point, 5):
             nearPoint += 1
 
+    print(f"Number of tries: {TRIES}")
     print(f"The dart is in the right half: {inRightHalf/TRIES}")
     print(f"The dart distance from center > 5: {distFromCentMoreThan5/TRIES}")
     print(f"The dart distance from center < 5: {distFromCentLessThan5/TRIES}")
-    print(f"The dart distance to (0, 5): {nearPoint/TRIES}")
+    print(f"The dart distance to (0, 5) <= 5: {nearPoint/TRIES}")
 
 simulate()

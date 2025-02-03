@@ -6,7 +6,17 @@ class Solution:
 
 solution = Solution()
 
+print("Values: true, false, 1, 0")
 input1 = input("Input value 1: ")
 input2 = input("Input value 2: ")
 
-print(solution.xnor(bool(input1), bool(input2)))
+map = {
+    "true": 1,
+    "True": 1,
+    "false": 0,
+    "False": 0,
+    1: 1,
+    0: 0
+}
+
+print(solution.xnor(bool(map[input1]), bool(map[input2])))

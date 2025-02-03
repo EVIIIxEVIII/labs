@@ -1,4 +1,5 @@
 from collections import defaultdict
+import ast
 
 class Solution():
     def canFinish(self, numCourses, prerequisites):
@@ -38,6 +39,11 @@ class Solution():
 
 solution = Solution()
 
-print(solution.canFinish(2, [[1,0]]))
-print(solution.canFinish(2, [[0,1], [1,0]]))
-print(solution.canFinish(5, [[1,4],[2,4],[3,1],[3,2]]))
+# print(solution.canFinish(2, [[1,0]]))
+# print(solution.canFinish(2, [[0,1], [1,0]]))
+# print(solution.canFinish(5, [[1,4],[2,4],[3,1],[3,2]]))
+
+numCourses = int(input("Input the number of course > "))
+prerequisites = input("Input the number of prerequisites > ")
+prerequisites = ast.literal_eval(prerequisites)
+print(solution.canFinish(numCourses, prerequisites))

@@ -96,7 +96,8 @@ class RSA():
                 return n
 
 rsa = RSA()
-encryptedString = rsa.encrypt("Hello World!")
-print(encryptedString)
+toEncrypt = input("Input the string you would like to encrypt > ")
+encryptedString = rsa.encrypt(toEncrypt)
+print("The encrypted string is: ", encryptedString)
 decryptedString = rsa.decrypt(encryptedString)
-print(decryptedString)
+print("The decrypted string is: ", decryptedString)

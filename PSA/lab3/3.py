@@ -24,6 +24,7 @@ def simulate():
         if seats[99] is not None:
             lastSeatsRandomly += 1
 
+    print(f"Tries {TRIES} number of times")
     print(f"The last person will seat in their seat with probability {1 - lastSeatsRandomly/TRIES}")
 
 

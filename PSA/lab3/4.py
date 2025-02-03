@@ -56,7 +56,7 @@ class Solution():
         suggestions = []
 
         for tweetWord, freq in wordToFrequency.items():
-            if tweetWord.startswith(word):
+            if tweetWord.lower().startswith(word.lower()):
                 suggestions.append((tweetWord, freq))
             if len(suggestions) == 3: break
 
@@ -142,56 +142,61 @@ class Solution():
 
 solution = Solution()
 
-print("\n--- 4.1 ---\n")
-wordsCount = list(solution.countWords().items())[:10]
-print("Top 10 most used words are: ")
-for word, count in wordsCount:
-    print(f"- {word} -> {count}")
-print("\n--- 4.1 ---\n")
+print()
+print()
+print("--- 4.1 ---")
+print("--- 4.2 ---")
+print("--- 4.3 ---")
+print("--- 4.4 ---")
+print("--- 4.5 ---")
+print("--- 4.6 ---")
+print("--- 4.7 ---")
+problem = input("Input the problem > ")
 
-[nounsCount, properNounsCount] = solution.countNouns()
-print("\n--- 4.2 ---\n")
-nounsCount = list(nounsCount.items())[:10]
-print("Top 10 most used nouns are: ")
-for noun, count in nounsCount:
-    print(f"- {noun} -> {count}")
-print("\n--- 4.2 ---\n")
+match problem:
+    case "4.1":
+        wordsCount = list(solution.countWords().items())[:10]
+        print("Top 10 most used words are: ")
+        for word, count in wordsCount:
+            print(f"- {word} -> {count}")
 
-print("\n--- 4.3 ---\n")
-properNounsCount = list(properNounsCount.items())[:10]
-print("Top 10 most used proper nouns are: ")
-for n, c in properNounsCount:
-    print(f"- {n} -> {c}")
-print("\n--- 4.3 ---\n")
+    case "4.2":
+        nounsCount, _ = solution.countNouns()
+        nounsCount = list(nounsCount.items())[:10]
+        print("Top 10 most used nouns are: ")
+        for noun, count in nounsCount:
+            print(f"- {noun} -> {count}")
 
-print("\n--- 4.4 ---\n")
-monthToCount = solution.drawMonthFreqDiag("the")
-print("\n--- 4.4 ---\n")
+    case "4.3":
+        _, properNounsCount = solution.countNouns()
+        properNounsCount = list(properNounsCount.items())[:10]
+        print("Top 10 most used proper nouns are: ")
+        for n, c in properNounsCount:
+            print(f"- {n} -> {c}")
 
-print("\n--- 4.5 ---\n")
-wordsByPopularity = list(solution.getWordsByPopularity().items())[:10]
-print("Words by popularity: ")
-for word, score in wordsByPopularity:
-    print(f"- {word} {score}")
-print("\n--- 4.5 ---\n")
+    case "4.4":
+        word = input("Input the word for which to draw the diagram > ")
+        monthToCount = solution.drawMonthFreqDiag(word)
 
-print("\n--- 4.6 ---\n")
-suggestions = solution.suggestWords("pro")
-word = "pro"
-print(f"Suggestions for word {word}: ")
-for suggestion, freq in suggestions:
-    print(f"- {suggestion} ({freq})")
+    case "4.5":
+        wordsByPopularity = list(solution.getWordsByPopularity().items())[:10]
+        print("Words by popularity: ")
+        for word, score in wordsByPopularity:
+            print(f"- {word} {score}")
 
-print("\n--- 4.6 ---\n")
+    case "4.6":
+        word = input("Suggestions for > ")
+        suggestions = solution.suggestWords(word)
+        print(f"Suggestions for word {word}: ")
+        for suggestion, freq in suggestions:
+            print(f"- {suggestion} ({freq})")
 
+    case "4.7":
+        autocompleteFor = input("Autocomplete for > ")
+        suggestions = solution.autocomplete(autocompleteFor)
+        suggestions = list(suggestions.items())[:3]
 
-print("\n--- 4.7 ---\n")
-autocompleteFor = "the"
-suggestions = solution.autocomplete(autocompleteFor)
-suggestions = list(suggestions.items())[:3]
+        print(f"Possible autocomplete for word {autocompleteFor}: ")
+        for suggestion, freq in suggestions:
+            print(f"- {suggestion} ({freq})")
 
-print(f"Autocomplete for word {autocompleteFor}: ")
-for suggestion, freq in suggestions:
-    print(f"- {suggestion} ({freq})")
-
-print("\n--- 4.7 ---\n")

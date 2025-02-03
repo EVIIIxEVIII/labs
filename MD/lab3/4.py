@@ -66,7 +66,7 @@ solution = Solution()
 
 print("\n--- 4.1 ---\n")
 hashTagsByFreq = solution.getHashtagsByFreq()
-top10 = list(hashTagsByFreq.items())[:5]
+top10 = list(hashTagsByFreq.items())[:10]
 print("The most popular hashtags are: ")
 for hashtag, freq in top10:
     print(f"- {hashtag} {freq}")

@@ -20,6 +20,7 @@ class Solution:
 
 solution = Solution()
 
+print("Exemp: 1 2 3 4 b c")
 input = input("Enter items separated by spaces: ")
 input = input.split(" ")
 

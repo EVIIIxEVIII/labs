@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 def europena_rullete(odd):
     ballAt = random.randrange(0, 37)
 
-    if ballAt == 0:
-        return False
+    #if ballAt == 0:
+    #    return False
 
     if odd:
         return (ballAt % 2) == 1
@@ -36,7 +36,7 @@ win = 0
 loss = 0
 
 for _ in range(0, 100000):
-    bet = n_fib_num(fib_n)
+    bet = n_fib_num(fib_n) * 10
     if balance < bet:
         print("You gabled your life savings, good job!")
         break

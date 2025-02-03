@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 map = defaultdict(int)
 
-for _ in range(1000):
+for _ in range(10_000):
     heads = 0
 
     for _ in range(100):
@@ -26,7 +26,6 @@ plt.bar(numbers, times)
 
 plt.xlabel("Numbers")
 plt.ylabel("Distribution")
-plt.title("Numbers from 35 to 65 distribution")
+plt.title(f"Numbers from 35 to 65 distribution after 10 000 tries")
 plt.show()
 
-print(map)

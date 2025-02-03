@@ -21,5 +21,4 @@ for _ in range(1_000_000):
 
     triangle_cases += 1 if is_striangle else 0
 
-
-print(f"The prob is {triangle_cases/SAMPLES}")
+print(f"The prob is {triangle_cases/SAMPLES} after {SAMPLES} tries")

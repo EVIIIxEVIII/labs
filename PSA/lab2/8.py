@@ -41,7 +41,7 @@ for i in range(4, 100):
 plt.figure(figsize=(10, 6))
 plt.plot(x, y, marker='o', linestyle='-', color='b', label='Probability')
 
-plt.title('Probability vs Number of Participants', fontsize=14)
+plt.title(f'Probability vs Number of Participants after {EXPER_NUM} experiments for each person', fontsize=14)
 plt.xlabel('Number of Participants (n)', fontsize=12)
 plt.ylabel('Probability', fontsize=12)
 

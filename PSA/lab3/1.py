@@ -12,4 +12,4 @@ arrivalRate = 6
 numTrials = 10000
 
 averageWaitTime = simulate(arrivalRate, numTrials)
-print(f"{averageWaitTime * 60:.2f} minutes")
+print(f"{averageWaitTime * 60:.2f} minutes after {numTrials} experiments")

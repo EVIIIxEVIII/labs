@@ -12,7 +12,6 @@ for _ in range(1_000_000):
             break
 
     until_first_boy.append(tries)
-
 print(f"Avg number of children with only one boy: {sum(until_first_boy) / len(until_first_boy)}")
 
 
@@ -37,4 +36,5 @@ for _ in range(1000):
 
     until_boy_and_girl.append(tries)
 
+print("Tried 1 000 000 times")
 print(f"Avg number of children with at least one boy and at least one girl: { sum(until_boy_and_girl) / len(until_boy_and_girl) }")

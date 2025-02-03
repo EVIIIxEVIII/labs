@@ -34,4 +34,7 @@ class Solution:
         return frontPart + s
 
 solution = Solution()
-print(solution.shortestPalindrome("aabababababaababaa"))
+
+theString = input("Please input the string > ")
+print(solution.shortestPalindrome(theString))
+

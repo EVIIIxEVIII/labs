@@ -18,9 +18,9 @@ balance_history = [balance]
 loss = 0
 win = 0
 
-for _ in range(0, 1_000_000):
+for i in range(0, 1_000_000):
     if balance < bet:
-        print("You gabled your life savings, good job!")
+        print(f"You gabled your life savings after {i} games, good job!")
         break
 
     balance -= bet

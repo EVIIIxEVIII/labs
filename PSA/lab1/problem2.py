@@ -71,7 +71,8 @@ def printTheData(barrelSize, exeprimentResults, experimentType):
     [deadCountFirstSpin, deadCountNextShot, deadCountSpinAgain] = exeprimentResults
 
     print("\n")
-    print(f"------- {experimentType}: {barrelSize}) -------")
+    print(f"------- {experimentType}: {barrelSize} -------")
+    print(f"Tries {REPEAT} number of times")
     print("\n")
 
     print(f"Chance of being alive after first shot is: { (REPEAT - deadCountFirstSpin)/REPEAT * 100 }%")

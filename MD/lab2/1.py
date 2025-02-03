@@ -11,4 +11,4 @@ num2 = int("2710e45014ed7d2550aac9887cc18b6858b978c2409e86f80bad4b59ebcbd90ed187
 
 res = str(gcd(num1, num2))
 
-print(res[len(res) - 6:])
+print("The GCD is: ", res[len(res) - 6:])

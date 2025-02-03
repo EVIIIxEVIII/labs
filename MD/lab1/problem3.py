@@ -14,10 +14,9 @@ class Solution:
             arr.reverse()
             return arr
 
-
-        for j in range(n - 1, pivot, -1):
-            if arr[j] > arr[pivot]:
-                arr[pivot], arr[j] = arr[j], arr[pivot]
+        for j in range(n - 1, pivot, -1): # we don't need any max(), because
+            if arr[j] > arr[pivot]: # we already check that the array in the half is
+                arr[pivot], arr[j] = arr[j], arr[pivot] # descending
                 break
 
         arr[pivot + 1:] = reversed(arr[pivot + 1:]) # + 1 to not include the pivot in the reverse op
@@ -28,6 +27,7 @@ class Solution:
         return arr
 
 solution = Solution()
+print("Example 6 2 3 4 5 1")
 input = input("Input the array separated by spaces: ")
 input = input.split(" ")
 print(solution.nextArray(input))

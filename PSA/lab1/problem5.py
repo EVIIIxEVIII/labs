@@ -6,7 +6,7 @@ N = 15
 
 map = {}
 
-for _ in range(1_000_000_000):
+for i in range(1_000_000_000):
     input_string = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(N))
 
     md5_hash = hashlib.md5(input_string.encode()).hexdigest()
@@ -16,7 +16,7 @@ for _ in range(1_000_000_000):
     first_40_bits = binary_hash[:40]
 
     if first_40_bits in map:
-        print("Found!")
+        print(f"Found after {i} tries")
         print("First string: ", input_string)
         print("Second string: ", map[first_40_bits]["source"])
 
@@ -25,14 +25,3 @@ for _ in range(1_000_000_000):
         break
 
     map[first_40_bits] = { "hash" : md5_hash, "source": input_string }
-
-
-
-
-
-
-
-
-
-
-

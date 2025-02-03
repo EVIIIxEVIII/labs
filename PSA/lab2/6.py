@@ -27,7 +27,7 @@ for _ in range(TOTAL_TRIES):
         insideBlack += 1
         balance += 1
 
-
+print(f"Total number of tries {TOTAL_TRIES}")
 print(f"The chance is { insideBlack / TOTAL_TRIES }")
 print(f"The balance is: { balance }")
 print(f"The game is not fair!")

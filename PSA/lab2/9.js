@@ -16,4 +16,4 @@ for (let i = 0; i < 100000000; i++) {
 }
 
 const sum = res.reduce((acc, val) => acc + val, 0);
-console.log(`A fair entrace fee for the game is: ${sum / res.length}`)
+console.log(`A fair entrace fee for the game is: ${sum / res.length} after 100000000 experiments`)

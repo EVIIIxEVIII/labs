@@ -43,5 +43,6 @@ for _ in range(1_000_000):
     if angle1 < 120 and angle2 < 120 and angle3 < 120 and angle4 < 120:
         less_than_120 += 1
 
+print(f"Tried 1 000 000 times")
 print(f"The prob that the thing is convex is {convex_num / 1_000_000}")
 print(f"The prob that the thing has all angles less than 120 is {less_than_120 / 1_000_000}")

@@ -33,7 +33,6 @@ small_averages = []
 
 for y in range(100_000):
     outcomes_small_num_games = []
-
     for z in range(SMALL_NUMBER_OF_PLAYS):
         money = 2
 
@@ -47,8 +46,10 @@ for y in range(100_000):
     small_outcomes.append(sum(outcomes_small_num_games))
 
 small_avg = sum(small_outcomes) / len(small_outcomes)
+
 print(f"The average return for {SMALL_NUMBER_OF_PLAYS} games is: ", small_avg)
 print(f"The median of average outcomes is: {np.median(small_averages)}")
+
 print(f"The median profit of {SMALL_NUMBER_OF_PLAYS} games is: {np.median(small_outcomes)}")
 print(f"The maximum profit was: {max(small_outcomes)}")
 

@@ -51,8 +51,7 @@ class Solution():
             decryptedText = self.decryptMessage(word, self.encryptedText)
             percOfEng = self.percentageOfEnglishWords(decryptedText, words)
             if percOfEng > 11:
-                print('Possible encryption break:')
-                print('Key ' + str(word) + ': ' + decryptedText[:100])
+                print('Key --' + str(word) + '-- : ' + decryptedText[:100])
                 print('The percentage of english is: ', percOfEng)
 
 nltk.download('words')
