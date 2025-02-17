@@ -45,6 +45,9 @@ int main(int argc, char *argv[]) {
 
     double end = getTimeMicroseconds();
 
+    numberOfElements <= 32 ?
+        printf("Used insertion sort to sort all the elements!") :
+        printf("Used merge sort to sort all the elements!");
     // don't care how much time it take to print them
     printf("\nINDEX | VALUE\n");
     for (int i = 0; i < numberOfElements; i++) {
@@ -138,12 +141,16 @@ void merge(int* data, int left, int mid, int right, int* temp) {
 void readFromKeyboard(size_t* numberOfElements, int** data) {
     printf("Input the number of elements: ");
     scanf("%ld", numberOfElements);
-    *data = malloc(*numberOfElements * sizeof(int));
+    *data = (int*)malloc(*numberOfElements * sizeof(int));
 
     printf("\nInput the elements separated by space: \n");
-    if (*data == NULL) exit(1);
+    if (*data == NULL) {
+        printf("Memory allocation failed!");
+        exit(1);
+    }
+
     for (int i = 0; i < *numberOfElements; i++) {
-        scanf("%d", data[i]);
+        scanf("%d", &(*data)[i]);
     }
 }
 

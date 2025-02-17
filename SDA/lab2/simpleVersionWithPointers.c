@@ -49,7 +49,7 @@ int main() {
     double end;
     getTimeMicroseconds(&end);
 
-	printf("\n\nElapsed cycles: %lf\n\n", end - start);
+	printf("\n\nElapsed time: %lf\n\n", end - start);
 
     return 0;
 }

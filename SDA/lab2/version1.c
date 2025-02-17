@@ -43,7 +43,7 @@ int main() {
     }
 
     double end = getTimeMicroseconds();
-	printf("\n\nElapsed cycles: %f\n\n", end - start);
+	printf("\n\nElapsed time: %f\n\n", end - start);
 
     return 0;
 }

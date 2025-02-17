@@ -46,10 +46,14 @@ int main(int argc, char *argv[]) {
     double end = getTimeMicroseconds();
 
     // don't care how much time it take to print them
-    // printf("\nINDEX | VALUE\n");
-    // for (int i = 0; i < numberOfElements; i++) {
-    //     printf("  %d      %d\n", i, data[i]);
-    // }
+    numberOfElements <= 32 ?
+        printf("Used insertion sort to sort all the elements!") :
+        printf("Used merge sort to sort all the elements!");
+
+    printf("\nINDEX | VALUE\n");
+    for (int i = 0; i < numberOfElements; i++) {
+        printf("  %d      %d\n", i, data[i]);
+    }
 
 	printf("\n\nExecution in microseconds: %f\n\n", end - start);
 
@@ -147,7 +151,7 @@ void readFromKeyboard(size_t* numberOfElements, int** data) {
     printf("\nInput the elements separated by space: \n");
     if (*data == NULL) exit(1);
     for (int i = 0; i < *numberOfElements; i++) {
-        scanf("%d", data[i]);
+        scanf("%d", &(*data)[i]);
     }
 }
 
