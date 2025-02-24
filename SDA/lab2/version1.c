@@ -85,6 +85,7 @@ int printNonDuplicates(int* arr, int size) {
 void bubbleSort(int* arr, int size) {
     int swapped;
     for (int i = 0; i < size; i++) {
+        // define a flag variable to optimize
         swapped = 0;
 
         for (int j = 0; j < size - 1; j++) {
@@ -96,6 +97,8 @@ void bubbleSort(int* arr, int size) {
             }
         }
 
+        // if the swap did not occur it means that the array
+        // is already sorted and no more operations are needed.
         if (!swapped) break;
     }
 }
@@ -104,6 +107,9 @@ void selectionSort(int* arr, int size) {
     for (int i = 0; i < size; i++) {
         int min = i;
 
+        // for each element go through all the elements after it
+        // and then find the smallest. When the smallest is found
+        // swap it with the current element
         for (int j = i; j < size; j++) {
             if(arr[min] > arr[j]) {
                 min = j;

@@ -42,7 +42,7 @@ def main():
 		a.tofile(f)
 
 	n = 10000000
-	data = generate_random_ints(n, 0, 100000000)
+	data = generate_random_ints(n, 0, 2147483646)
 	a = array.array('i', data)
 
 	with open("data/10000000.bin", "wb") as f:

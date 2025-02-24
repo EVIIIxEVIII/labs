@@ -45,7 +45,6 @@ int main(int argc, char *argv[]) {
 
     double end = getTimeMicroseconds();
 
-    // don't care how much time it take to print them
     numberOfElements <= 32 ?
         printf("Used insertion sort to sort all the elements!") :
         printf("Used merge sort to sort all the elements!");
@@ -62,17 +61,24 @@ int main(int argc, char *argv[]) {
 }
 
 void insertSort(size_t numberOfElements, int* data) {
+    // check for edge case
     if (numberOfElements <= 1) return;
 
     for (size_t i = 1; i < numberOfElements; i++) {
         int val = data[i];
+        // j is the element which comes before the current one
         int j = i - 1;
 
+        // while j is greater than 0 and the value at j is greater than our value
         while (j >= 0 && data[j] > val) {
+            // we move each element to the right of the array.
             data[j + 1] = data[j];
+            // and then decrease our j
             j--;
         }
 
+        // after we found the correct place for our value
+        // we insert it there.
         data[j + 1] = val;
     }
 }
