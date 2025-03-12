@@ -94,6 +94,7 @@ void mergeSort(size_t n, int* data) {
     for (int width = 1; width < n; width *= 2) {
         // here we have 2 * width, because we are mergin 2 subarrays
 
+        #pragma omp parallel for
         for (int i = 0; i < n; i += 2 * width) {
 
             int left = i;

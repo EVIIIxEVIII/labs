@@ -7,6 +7,7 @@
 // 1) Sort the array in ascending order using insertion sort for arrays with <= 32 elements
 // 2) Sort the array in ascending order using Merge Sort for arrays with >= 32 elements
 
+#include <omp.h>
 #include <stddef.h>
 #include <stdio.h>
 #include <time.h>
@@ -64,6 +65,7 @@ void insertSort(size_t* numberOfElements, int* data) {
     // check for edge case
     if (*numberOfElements <= 1) return;
 
+    #pragma omp parallel for collapse(1)
     for (size_t i = 1; i < *numberOfElements; i++) {
         int val = data[i];
         // j is the element which comes before the current one
@@ -94,6 +96,7 @@ void mergeSort(size_t* n, int* data) {
     for (int width = 1; width < *n; width *= 2) {
         // here we have 2 * width, because we are mergin 2 subarrays
 
+        #pragma omp parallel for
         for (int i = 0; i < *n; i += 2 * width) {
 
             int left = i;

@@ -84,10 +84,11 @@ int printNonDuplicates(int* arr, int size) {
 
 void bubbleSort(int* arr, int size) {
     int swapped;
+
     for (int i = 0; i < size; i++) {
         // define a flag variable to optimize
-        swapped = 0;
 
+        swapped = 0;
         for (int j = 0; j < size - 1; j++) {
             if (arr[j] < arr[j+1]) {
                 int temp = arr[j];

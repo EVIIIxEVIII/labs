@@ -8,12 +8,6 @@ For descending bubble sort:
 5 3 4 1 2 7 5
 
 ---- Custom task ----
-For insertion sort (from file):
-./customConditionV2 ./data/31.bin
-
-For merge sort (from file):
-./customConditionV2 ./data/33.bin
-
 For insertion sort (from kb):
 31
 541 43 120 321 993 141 831 12 745 832 585 178 876 246 997 516 691 433 838 441 583 980 826 823 601 137 600 76 845 38 20
@@ -21,3 +15,11 @@ For insertion sort (from kb):
 For merge sort (from kb):
 33
 924 574 561 832 530 725 143 271 254 691 216 449 476 969 75 240 134 658 791 612 996 853 400 212 129 887 277 593 158 170 581 921 335
+
+
+./version1      -> version 1
+./simpleVersion -> version 1 with XOR
+
+./fastNoVerbose -> custom condition for 100mil
+./fastVerbose   -> custom condition for small
+
