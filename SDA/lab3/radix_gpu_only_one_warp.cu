@@ -1,10 +1,10 @@
 #include <stdlib.h>
 #include <cuda_runtime.h>
 #include <stdio.h>
-
+#include <thrust/scan.h>
 
 #define N 33
-#define BLOCK_SIZE 32
+#define BLOCK_SIZE 64
 
 int get_nth_digit(int num, int digit) {
     int abs_num = abs(num);
@@ -151,6 +151,7 @@ int main() {
         for (int i = 1; i < 10; i++) {
             h_histogram[i] += h_histogram[i - 1];
         }
+
         cudaMemcpy(d_histogram, h_histogram, 10 * sizeof(int), cudaMemcpyHostToDevice);
         cudaDeviceSynchronize();
 
